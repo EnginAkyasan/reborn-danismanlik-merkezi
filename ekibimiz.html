@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ekibimiz — Reborn Danışmanlık Merkezi</title>
+  <meta name="description" content="Reborn Danışmanlık Merkezi uzman psikolog kadrosu. Klinik psikologlarımızın eğitim geçmişleri, uzmanlık alanları ve deneyimleri hakkında bilgi alın." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234A6741'/><text y='22' x='7' font-size='18' font-family='Georgia,serif' fill='white'>R</text></svg>" />
+  <style>
+    .psychologist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem; }
+    .psychologist-card { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 2rem; transition: all var(--dur-base) var(--ease-out); }
+    .psychologist-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .psychologist-photo { width: 200px; height: 240px; border-radius: var(--r-lg); display: flex; align-items: center; justify-content: center; font-size: 5rem; flex-shrink: 0; }
+    .psychologist-meta { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+    .psychologist-name { font-family: var(--font-serif); font-size: 1.6rem; color: var(--forest); }
+    .psychologist-role { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+    .psychologist-bio { color: var(--muted); font-size: 0.875rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .education-list { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+    .education-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--ink-light); }
+    .education-item::before { content: '🎓'; flex-shrink: 0; }
+    .cert-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+    .approach-section { background: var(--sage-mist); border-radius: var(--r-md); padding: 1rem 1.2rem; margin-top: 1rem; }
+    .approach-section h5 { font-size: 0.75rem; color: var(--sage); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .approach-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .full-card { grid-column: 1 / -1; }
+    @media (max-width: 900px) {
+      .psychologist-grid { grid-template-columns: 1fr; }
+      .psychologist-card { grid-template-columns: 1fr; }
+      .psychologist-photo { width: 100%; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon" style="background:transparent;padding:0;overflow:hidden">
+          <img src="assets/images/logo.png" alt="Reborn Logo" style="width:40px;height:40px;object-fit:contain" />
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Reborn</span>
+          <span class="nav-logo-sub">Danışmanlık Merkezi</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Ana Sayfa</a>
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetler.html" class="nav-link">Hizmetler</a>
+        <a href="ekibimiz.html" class="nav-link active">Ekibimiz</a>
+        <a href="iletisim.html" class="nav-link">İletişim</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+902121234567" class="nav-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.22 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          (0212) 123 45 67
+        </a>
+        <a href="iletisim.html" class="btn btn-primary btn-sm">Randevu Al</a>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav-link">Ana Sayfa</a>
+    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+    <a href="hizmetler.html" class="nav-link">Hizmetler</a>
+    <a href="ekibimiz.html" class="nav-link">Ekibimiz</a>
+    <a href="iletisim.html" class="nav-link">İletişim</a>
+    <a href="iletisim.html" class="btn btn-primary w-full" style="margin-top:8px">Randevu Al</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Ana Sayfa</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Ekibimiz</span>
+      </nav>
+      <span class="section-label" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:var(--gold-light)">Uzman Kadromuz</span>
+      <h1>Psikologlarımızla Tanışın</h1>
+      <p>Her biri kendi alanında uzmanlaşmış, kanıta dayalı terapötik yaklaşımlar kullanan ve sürekli mesleki gelişimini destekleyen psikologlarımız.</p>
+    </div>
+  </section>
+
+  <!-- LEAD PSYCHOLOGIST -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Kurucu Psikolog</span>
+        <h2>Klinik Direktörümüz</h2>
+      </div>
+
+      <!-- Gizem Işık — Full Width Card -->
+      <div class="psychologist-card full-card reveal" style="margin-top:2.5rem;grid-column:1/-1;grid-template-columns:220px 1fr">
+        <div class="psychologist-photo" style="background:linear-gradient(135deg,#1A1A1A,#E8A800);border-radius:var(--r-lg);width:220px;height:280px;flex-shrink:0">
+          <span>👩‍⚕️</span>
+        </div>
+        <div>
+          <div class="psychologist-meta">
+            <h2 class="psychologist-name">Uzm. Klinik Psk. Gizem Işık</h2>
+            <div class="psychologist-role">Kurucu & Klinik Direktör</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="tag">Klinik Psikolog</span>
+              <span class="tag">Oyun Terapisti</span>
+              <span class="tag">Bale Eğitmeni</span>
+              <span class="tag">Türkçe / İngilizce</span>
+            </div>
+          </div>
+
+          <p class="psychologist-bio">
+            Gizem Işık, Klinik Psikolog unvanıyla ruh sağlığı alanında uzun yıllar boyunca hizmet vermekte; aynı zamanda çocuklarla oyun terapisi ve yetişkinler için bale dersleri yürütmektedir. Beden ve zihin bütünlüğüne inanan Gizem Hanım, psikoterapi süreçlerini mindful yoga, nefes terapisi ve sanat terapisi gibi bütünleşik yaklaşımlarla desteklemektedir. Reborn Danışmanlık Merkezi'ni Etiler'de kurarak danışanlarına güvenli ve dönüştürücü bir alan sunmaktadır.
+          </p>
+
+          <div class="education-list">
+            <div class="education-item">Klinik Psikoloji Uzmanlık Eğitimi</div>
+            <div class="education-item">Oyun Terapisi Sertifikası</div>
+            <div class="education-item">Balet Eğitmenliği — Yetişkin Bale Programı</div>
+            <div class="education-item">Mindfulness Temelli Stres Azaltma (MBSR) Sertifikası</div>
+          </div>
+
+          <div class="approach-section">
+            <h5>Uzmanlık & Hizmetler</h5>
+            <div class="approach-tags">
+              <span class="tag">Bireysel Danışmanlık</span>
+              <span class="tag">Oyun Terapisi</span>
+              <span class="tag">Yetişkin Bale</span>
+              <span class="tag">Mindful Yoga</span>
+              <span class="tag">Nefes Terapisi</span>
+              <span class="tag">Sanat Terapisi</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem">
+            <a href="iletisim.html" class="btn btn-primary btn-sm">Randevu Al</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EKİP ÜYELERİ -->
+  <section class="section" style="background:var(--white)">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Ekibimiz</span>
+        <h2>Uzman Psikologlarımız</h2>
+      </div>
+
+      <div class="psychologist-grid">
+
+        <!-- Ahmet Demir -->
+        <div class="psychologist-card reveal reveal-delay-1">
+          <div class="psychologist-photo" style="background:linear-gradient(135deg,#F5C842,#E8A800)">
+            <span>🧑‍⚕️</span>
+          </div>
+          <div>
+            <div class="psychologist-meta">
+              <h3 class="psychologist-name">Psk. Danş. Ahmet Demir</h3>
+              <div class="psychologist-role">Çift & Aile Terapisti</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+                <span class="tag">8 Yıl Deneyim</span>
+                <span class="tag">TPD Üyesi</span>
+              </div>
+            </div>
+            <p class="psychologist-bio">
+              Marmara Üniversitesi Psikolojik Danışmanlık ve Rehberlik mezunu. Çift ve aile terapisi alanında uzmanlaşmış; iletişim bozuklukları, güven sorunları ve boşanma süreçlerinde 8 yıllık deneyime sahiptir.
+            </p>
+            <div class="education-list">
+              <div class="education-item">Marmara Üniversitesi — PDR Yüksek Lisansı (2016)</div>
+              <div class="education-item">Bowen Aile Sistem Terapisi Sertifikası</div>
+              <div class="education-item">Emotionally Focused Therapy (EFT) Sertifikası</div>
+            </div>
+            <div class="approach-section">
+              <h5>Uzmanlık Alanları</h5>
+              <div class="approach-tags">
+                <span class="tag">Çift Terapisi</span>
+                <span class="tag">Aile Terapisi</span>
+                <span class="tag">EFT</span>
+                <span class="tag">Boşanma Danışmanlığı</span>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <a href="iletisim.html?psikolog=ahmet" class="btn btn-primary btn-sm">Randevu Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selin Kaya -->
+        <div class="psychologist-card reveal reveal-delay-2">
+          <div class="psychologist-photo" style="background:linear-gradient(135deg,#E8A800,#3D3000)">
+            <span>👩‍🔬</span>
+          </div>
+          <div>
+            <div class="psychologist-meta">
+              <h3 class="psychologist-name">Uzm. Psk. Selin Kaya</h3>
+              <div class="psychologist-role">Çocuk & Ergen Uzmanı</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+                <span class="tag">7 Yıl Deneyim</span>
+                <span class="tag">TPD Üyesi</span>
+              </div>
+            </div>
+            <p class="psychologist-bio">
+              Boğaziçi Üniversitesi Gelişim Psikolojisi yüksek lisanslı. 6-18 yaş arası çocuk ve ergen gruplarında oyun terapisi, davranış bozuklukları ve akademik stres alanlarında uzmanlaşmıştır.
+            </p>
+            <div class="education-list">
+              <div class="education-item">Boğaziçi Üniversitesi — Gelişim Psikolojisi YL (2017)</div>
+              <div class="education-item">Oyun Terapisi Derneği Sertifikası</div>
+              <div class="education-item">Çocuk BDT Sertifikası — Oxford</div>
+            </div>
+            <div class="approach-section">
+              <h5>Uzmanlık Alanları</h5>
+              <div class="approach-tags">
+                <span class="tag">Oyun Terapisi</span>
+                <span class="tag">Ergen Terapisi</span>
+                <span class="tag">DEHB</span>
+                <span class="tag">Okul Fobi</span>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <a href="iletisim.html?psikolog=selin" class="btn btn-primary btn-sm">Randevu Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mert Özkan -->
+        <div class="psychologist-card reveal reveal-delay-1">
+          <div class="psychologist-photo" style="background:linear-gradient(135deg,#5B8FA8,#2D5F7A)">
+            <span>🧑‍💻</span>
+          </div>
+          <div>
+            <div class="psychologist-meta">
+              <h3 class="psychologist-name">Psk. Mert Özkan</h3>
+              <div class="psychologist-role">Travma & Bağımlılık Uzmanı</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+                <span class="tag">6 Yıl Deneyim</span>
+                <span class="tag">EMDR Sertifikalı</span>
+              </div>
+            </div>
+            <p class="psychologist-bio">
+              İstanbul Üniversitesi Psikoloji mezunu. Travma tedavisi ve bağımlılık süreçlerinde uzmanlaşmış; EMDR ve motivasyonel görüşme teknikleri konusunda deneyimli.
+            </p>
+            <div class="education-list">
+              <div class="education-item">İstanbul Üniversitesi — Psikoloji Lisansı + YL (2018)</div>
+              <div class="education-item">EMDR Level I & II Sertifikası</div>
+              <div class="education-item">Motivasyonel Görüşme Sertifikası</div>
+            </div>
+            <div class="approach-section">
+              <h5>Uzmanlık Alanları</h5>
+              <div class="approach-tags">
+                <span class="tag">Travma (TSSB)</span>
+                <span class="tag">Bağımlılık</span>
+                <span class="tag">EMDR</span>
+                <span class="tag">Panik Atak</span>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <a href="iletisim.html?psikolog=mert" class="btn btn-primary btn-sm">Randevu Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elif Şahin -->
+        <div class="psychologist-card reveal reveal-delay-2">
+          <div class="psychologist-photo" style="background:linear-gradient(135deg,#C4845A,#8B5230)">
+            <span>👩‍🎨</span>
+          </div>
+          <div>
+            <div class="psychologist-meta">
+              <h3 class="psychologist-name">Psk. Danş. Elif Şahin</h3>
+              <div class="psychologist-role">Yeme Bozukluğu & Öz-Saygı Uzmanı</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+                <span class="tag">5 Yıl Deneyim</span>
+                <span class="tag">TPD Üyesi</span>
+              </div>
+            </div>
+            <p class="psychologist-bio">
+              Bilkent Üniversitesi Psikoloji bölümü mezunu. Beden imgesi sorunları, yeme bozuklukları ve öz-saygı geliştirme konularında uzmanlaşmış.
+            </p>
+            <div class="education-list">
+              <div class="education-item">Bilkent Üniversitesi — Psikoloji YL (2019)</div>
+              <div class="education-item">Yeme Bozuklukları Uzmanı Sertifikası</div>
+              <div class="education-item">Şema Terapi Sertifikası</div>
+            </div>
+            <div class="approach-section">
+              <h5>Uzmanlık Alanları</h5>
+              <div class="approach-tags">
+                <span class="tag">Yeme Bozuklukları</span>
+                <span class="tag">Özsaygı</span>
+                <span class="tag">Beden İmgesi</span>
+                <span class="tag">Şema Terapi</span>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <a href="iletisim.html?psikolog=elif" class="btn btn-primary btn-sm">Randevu Al</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEDEN BİZİ SEÇMELİ -->
+  <section class="section" style="background:var(--forest)">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:var(--gold-light)">Kalite Güvencesi</span>
+        <h2 style="color:white">Ekibimizin Standartları</h2>
+      </div>
+      <div class="grid-3" style="margin-top:3rem">
+        <div class="reveal reveal-delay-1" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🎓</div>
+          <h4 style="color:white;font-family:var(--font-serif);font-size:1.2rem;margin-bottom:0.5rem">Akademik Altyapı</h4>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.7">Tüm psikologlarımız en az yüksek lisans derecesine sahip. Üniversite tabanlı süpervizyon programları tamamlanmıştır.</p>
+        </div>
+        <div class="reveal reveal-delay-2" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">📋</div>
+          <h4 style="color:white;font-family:var(--font-serif);font-size:1.2rem;margin-bottom:0.5rem">Etik Üyelik</h4>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.7">Türk Psikologlar Derneği aktif üyeliği ve etik ilkelere sıkı bağlılık. Düzenli süpervizyon ve mesleki gelişim.</p>
+        </div>
+        <div class="reveal reveal-delay-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🔄</div>
+          <h4 style="color:white;font-family:var(--font-serif);font-size:1.2rem;margin-bottom:0.5rem">Sürekli Gelişim</h4>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.7">Yıllık ileri eğitim programları, konferans katılımı ve akran süpervizyonu ile güncel kalıyoruz.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem">
+        <a href="iletisim.html" class="btn btn-gold btn-lg">Ekibimizle Tanışın — Randevu Al</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Reborn Logo" style="width:32px;height:32px;object-fit:contain" />
+            <span class="footer-logo-text">Reborn Danışmanlık Merkezi</span>
+          </div>
+          <p>2012'den bu yana İstanbul'da psikolojik danışmanlık ve terapi hizmetleri sunuyoruz.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Hızlı Bağlantılar</h5>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+            <a href="hizmetler.html" class="footer-link">Hizmetler</a>
+            <a href="ekibimiz.html" class="footer-link">Ekibimiz</a>
+            <a href="iletisim.html" class="footer-link">İletişim</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Hizmetler</h5>
+          <div class="footer-links">
+            <a href="hizmetler.html#bireysel" class="footer-link">Bireysel Terapi</a>
+            <a href="hizmetler.html#cift" class="footer-link">Çift Terapisi</a>
+            <a href="hizmetler.html#aile" class="footer-link">Aile Terapisi</a>
+            <a href="hizmetler.html#cocuk" class="footer-link">Çocuk Terapisi</a>
+            <a href="hizmetler.html#online" class="footer-link">Online Terapi</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>İletişim</h5>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Etiler / Ulus, Beşiktaş · İstanbul</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.22 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <span><a href="tel:+902121234567">(0212) 123 45 67</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-text">© 2024 Reborn Danışmanlık Merkezi. Türk Psikologlar Derneği Üyesi</div>
+        <div class="flex gap-md">
+          <a href="#" class="footer-link" style="font-size:0.75rem">KVKK</a>
+          <a href="#" class="footer-link" style="font-size:0.75rem">Gizlilik Politikası</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="main.js"></script>
+</body>
+</html>

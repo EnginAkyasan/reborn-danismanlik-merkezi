@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Sun / circle -->
+  <circle cx="100" cy="82" r="34" fill="#F5C842" opacity="0.9"/>
+  <!-- Sun rays -->
+  <line x1="100" y1="38" x2="100" y2="26" stroke="#E8A800" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="121" y1="43" x2="129" y2="34" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <line x1="136" y1="60" x2="146" y2="54" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <line x1="79" y1="43" x2="71" y2="34" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <line x1="64" y1="60" x2="54" y2="54" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <line x1="142" y1="82" x2="155" y2="82" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <line x1="58" y1="82" x2="45" y2="82" stroke="#E8A800" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right Wing -->
+  <path d="M110 80 Q130 60 158 48 Q145 70 138 88 Q125 80 110 80Z" fill="#E8A800" opacity="0.85"/>
+  <path d="M112 85 Q140 72 170 65 Q155 85 145 98 Q128 90 112 85Z" fill="#D4920A" opacity="0.7"/>
+  <path d="M108 90 Q132 82 155 82 Q142 100 130 110 Q118 100 108 90Z" fill="#E8A800" opacity="0.6"/>
+  <!-- Left Wing -->
+  <path d="M90 80 Q70 60 42 48 Q55 70 62 88 Q75 80 90 80Z" fill="#E8A800" opacity="0.85"/>
+  <path d="M88 85 Q60 72 30 65 Q45 85 55 98 Q72 90 88 85Z" fill="#D4920A" opacity="0.7"/>
+  <path d="M92 90 Q68 82 45 82 Q58 100 70 110 Q82 100 92 90Z" fill="#E8A800" opacity="0.6"/>
+  <!-- Phoenix Body -->
+  <path d="M100 58 C96 64 93 72 93 80 C93 92 96 100 100 108 C104 100 107 92 107 80 C107 72 104 64 100 58Z" fill="#C8870A"/>
+  <!-- Neck & Head -->
+  <path d="M100 58 C98 52 95 47 97 42 C98 38 102 36 105 38 C108 40 108 45 106 50 C104 54 102 56 100 58Z" fill="#D4920A"/>
+  <!-- Beak -->
+  <path d="M105 38 C108 36 112 37 113 40 C111 41 108 40 105 38Z" fill="#C8870A"/>
+  <!-- Eye -->
+  <circle cx="104" cy="40" r="1.5" fill="#1A1A1A"/>
+  <!-- Tail feathers -->
+  <path d="M100 108 C98 118 96 130 94 142 C92 154 90 162 88 168" stroke="#E8A800" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M100 108 C100 120 100 133 100 146 C100 158 100 164 100 170" stroke="#D4920A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M100 108 C102 118 104 130 106 142 C108 154 110 162 112 168" stroke="#E8A800" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Tail curl -->
+  <path d="M88 168 C84 174 82 180 86 184 C90 186 95 182 96 176" stroke="#E8A800" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M112 168 C116 174 118 180 114 184 C110 186 105 182 104 176" stroke="#D4920A" stroke-width="2" stroke-linecap="round" fill="none"/>
+</svg>

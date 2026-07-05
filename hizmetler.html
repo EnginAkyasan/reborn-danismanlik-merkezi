@@ -1,0 +1,759 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hizmetler — Reborn Danışmanlık Merkezi</title>
+  <meta name="description" content="Bireysel terapi, çift terapisi, aile terapisi, çocuk terapisi, online terapi ve EMDR hizmetleri. Reborn Danışmanlık Merkezi uzman psikologlarıyla yanınızda." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234A6741'/><text y='22' x='7' font-size='18' font-family='Georgia,serif' fill='white'>R</text></svg>" />
+  <style>
+    .service-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+    .service-section:last-child { border-bottom: none; }
+    .service-section:nth-child(even) { background: var(--cream); }
+    .service-section:nth-child(odd) { background: var(--white); }
+    .service-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .service-layout.reverse { direction: rtl; }
+    .service-layout.reverse > * { direction: ltr; }
+    .service-visual { border-radius: var(--r-xl); overflow: hidden; height: 420px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .service-visual-inner { text-align: center; position: relative; z-index: 1; }
+    .service-emoji { font-size: 6rem; display: block; margin-bottom: 1rem; }
+    .service-visual-title { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; color: rgba(255,255,255,0.9); }
+    .service-details { display: flex; flex-direction: column; gap: 1rem; }
+    .service-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.5rem 0; }
+    .service-info-item { background: var(--sage-mist); border-radius: var(--r-md); padding: 0.75rem 1rem; }
+    .service-info-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 2px; }
+    .service-info-value { font-size: 0.875rem; font-weight: 600; color: var(--forest); }
+    .process-steps { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+    .process-step { display: flex; align-items: flex-start; gap: 1rem; }
+    .step-num { width: 28px; height: 28px; background: var(--sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .step-text { font-size: 0.875rem; color: var(--muted); line-height: 1.6; padding-top: 4px; }
+    @media (max-width: 768px) {
+      .service-layout, .service-layout.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .service-visual { height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon" style="background:transparent;padding:0;overflow:hidden">
+          <img src="assets/images/logo.png" alt="Reborn Logo" style="width:40px;height:40px;object-fit:contain" />
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Reborn</span>
+          <span class="nav-logo-sub">Danışmanlık Merkezi</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Ana Sayfa</a>
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetler.html" class="nav-link active">Hizmetler</a>
+        <a href="ekibimiz.html" class="nav-link">Ekibimiz</a>
+        <a href="iletisim.html" class="nav-link">İletişim</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+902121234567" class="nav-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.22 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          (0212) 123 45 67
+        </a>
+        <a href="iletisim.html" class="btn btn-primary btn-sm">Randevu Al</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav-link">Ana Sayfa</a>
+    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+    <a href="hizmetler.html" class="nav-link">Hizmetler</a>
+    <a href="ekibimiz.html" class="nav-link">Ekibimiz</a>
+    <a href="iletisim.html" class="nav-link">İletişim</a>
+    <a href="iletisim.html" class="btn btn-primary w-full" style="margin-top:8px">Randevu Al</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Ana Sayfa</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Hizmetler</span>
+      </nav>
+      <span class="section-label" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:var(--gold-light)">Terapi Hizmetleri</span>
+      <h1>Size Özel Terapi & Sağlık Hizmetleri</h1>
+      <p>Bireysel danışmanlıktan oyun terapisine, yetişkin balenden mindful yoga ve nefes terapisine — zihin ve beden bütünlüğü için kapsamlı programlarımızla yanınızdayız.</p>
+    </div>
+  </section>
+
+  <!-- HIZMET NAV -->
+  <div style="background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:80px;z-index:100;overflow-x:auto">
+    <div class="container" style="padding-top:0;padding-bottom:0">
+      <div style="display:flex;gap:0;overflow-x:auto;scrollbar-width:none">
+        <a href="#bireysel" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Bireysel Terapi</a>
+        <a href="#cift" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Çift & Aile</a>
+        <a href="#cocuk" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Oyun Terapisi</a>
+        <a href="#bale" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Yetişkin Bale</a>
+        <a href="#yoga" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Mindful Yoga</a>
+        <a href="#egitim" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Eğitim Koçluğu</a>
+        <a href="#online" style="padding:1.1rem 1.5rem;font-size:0.875rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none" class="service-nav-link">Online Terapi</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BİREYSEL TERAPİ -->
+  <section class="service-section" id="bireysel">
+    <div class="container">
+      <div class="service-layout">
+        <div class="reveal">
+          <span class="section-label">01 — Bireysel Terapi</span>
+          <h2>Kendinizle Yüzleşme ve İyileşme</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Bireysel terapi; anksiyete, depresyon, travma, öfke kontrolü, özgüven sorunları ve kişisel gelişim gibi konularda psikologunuzla bire bir çalışmayı kapsar. Her seans tamamen size ve ihtiyaçlarınıza göre şekillendirilir.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">50 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Sıklığı</div>
+              <div class="service-info-value">Haftada 1 Seans</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ortalama Süre</div>
+              <div class="service-info-value">3–6 Ay</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Yüz Yüze / Online</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Çalışılan Konular</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">Anksiyete & Kaygı</span>
+              <span class="tag">Depresyon</span>
+              <span class="tag">Düşük Özsaygı</span>
+              <span class="tag">Öfke Yönetimi</span>
+              <span class="tag">Yas Süreci</span>
+              <span class="tag">İş Stresi</span>
+              <span class="tag">Panik Atak</span>
+              <span class="tag">OKB</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=bireysel" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#E8A800,#1A1A1A)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">🧠</span>
+              <p class="service-visual-title">Bireysel Terapi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÇİFT TERAPİSİ -->
+  <section class="service-section" id="cift">
+    <div class="container">
+      <div class="service-layout reverse">
+        <div class="reveal">
+          <span class="section-label">02 — Çift Terapisi</span>
+          <h2>İlişkinizi Yeniden İnşa Edin</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Çift terapisi; iletişim sorunları, güven krizleri, boşanma süreci, fiziksel yakınlık problemleri ve ilişkisel örüntüler üzerine çalışır. Her iki partnerle aynı anda veya ayrı ayrı seans yapılabilir.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">75 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Sıklığı</div>
+              <div class="service-info-value">İki Haftada 1</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ortalama Süre</div>
+              <div class="service-info-value">4–8 Ay</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Yüz Yüze / Online</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Çalışılan Konular</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">İletişim Sorunları</span>
+              <span class="tag">Güven Kırılması</span>
+              <span class="tag">Aldatma</span>
+              <span class="tag">Boşanma Danışmanlığı</span>
+              <span class="tag">Cinsellik</span>
+              <span class="tag">Çatışma Yönetimi</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=cift" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#F5C842,#E8A800)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">💑</span>
+              <p class="service-visual-title">Çift Terapisi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AİLE TERAPİSİ -->
+  <section class="service-section" id="aile">
+    <div class="container">
+      <div class="service-layout">
+        <div class="reveal">
+          <span class="section-label">03 — Aile Terapisi</span>
+          <h2>Ailenin Sağlığı, Herkesin Sağlığı</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Aile terapisi sistemik yaklaşımla tüm aile bireyleriyle birlikte yürütülür. İletişim örüntüleri, roller, sınırlar ve nesiller arası aktarımlar üzerinde çalışılır.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">90 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Katılımcılar</div>
+              <div class="service-info-value">Tüm Aile</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ortalama Süre</div>
+              <div class="service-info-value">3–5 Ay</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Yüz Yüze</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Çalışılan Konular</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">Aile İçi Çatışma</span>
+              <span class="tag">Ergen Sorunları</span>
+              <span class="tag">Ebeveyn-Çocuk Bağı</span>
+              <span class="tag">Yas & Kayıp</span>
+              <span class="tag">Boşanma Sonrası</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=aile" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#E8A800,#3D3000)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">👨‍👩‍👧</span>
+              <p class="service-visual-title">Aile Terapisi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÇOCUK & ERGEN -->
+  <section class="service-section" id="cocuk">
+    <div class="container">
+      <div class="service-layout reverse">
+        <div class="reveal">
+          <span class="section-label">04 — Çocuk & Ergen Terapisi</span>
+          <h2>Küçük Kalpler İçin Büyük Destek</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            6-18 yaş arası çocuk ve ergenler için oyun terapisi, sanat terapisi ve ergen odaklı BDT uygulanmaktadır. Aile katılımı sürecin önemli bir parçasıdır.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Yaş Grubu</div>
+              <div class="service-info-value">6–18 Yaş</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">45 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ortalama Süre</div>
+              <div class="service-info-value">2–4 Ay</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Yöntemler</div>
+              <div class="service-info-value">Oyun Terapisi</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Çalışılan Konular</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">DEHB</span>
+              <span class="tag">Okul Fobi</span>
+              <span class="tag">Zorbalık</span>
+              <span class="tag">Ergen Kimliği</span>
+              <span class="tag">Uyku Sorunları</span>
+              <span class="tag">Sosyal Kaygı</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=cocuk" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#5B8FA8,#2D5F7A)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">🌱</span>
+              <p class="service-visual-title">Çocuk & Ergen Terapisi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONLİNE TERAPİ -->
+  <section class="service-section" id="online">
+    <div class="container">
+      <div class="service-layout">
+        <div class="reveal">
+          <span class="section-label">05 — Online Terapi</span>
+          <h2>Evinizin Konforunda Terapi</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Güvenli ve şifreli video platformu üzerinden gerçekleşen online seanslar, yüz yüze seans kalitesiyle sunulmaktadır. Nerede olursanız olun terapinize devam edin.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Platform</div>
+              <div class="service-info-value">Zoom / Google Meet</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Güvenlik</div>
+              <div class="service-info-value">Uçtan Uca Şifreli</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ödeme</div>
+              <div class="service-info-value">Online / EFT</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">KVKK</div>
+              <div class="service-info-value">Tam Uyumlu</div>
+            </div>
+          </div>
+          <div class="process-steps" style="margin-top:1.5rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Nasıl Çalışır?</h5>
+            <div class="process-step">
+              <div class="step-num">1</div>
+              <div class="step-text">Formu doldurun veya bizi arayın, randevunuzu belirleyin</div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">2</div>
+              <div class="step-text">Güvenli ödemenizi yapın, seans bağlantısı e-posta ile gelir</div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">3</div>
+              <div class="step-text">Zamanında bağlanın — cihazınız ve internet bağlantınız yeterlidir</div>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=online" class="btn btn-primary">Online Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#1A1A1A,#E8A800)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">💻</span>
+              <p class="service-visual-title">Online Terapi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMDR -->
+  <section class="service-section" id="emdr">
+    <div class="container">
+      <div class="service-layout reverse">
+        <div class="reveal">
+          <span class="section-label">06 — EMDR Terapisi</span>
+          <h2>Travmayı Geride Bırakın</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            EMDR (Göz Hareketleriyle Duyarsızlaştırma ve Yeniden İşleme), özellikle travma ve TSSB tedavisinde bilimsel olarak kanıtlanmış etkinliğe sahip bir terapötik yaklaşımdır. Dünya Sağlık Örgütü tarafından onaylıdır.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">60–90 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Onay</div>
+              <div class="service-info-value">WHO Onaylı</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Ortalama Süre</div>
+              <div class="service-info-value">6–12 Seans</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Uygulayıcı</div>
+              <div class="service-info-value">Sertifikalı</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Hangi Durumlarda Kullanılır?</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">TSSB</span>
+              <span class="tag">Kaza Travması</span>
+              <span class="tag">Çocukluk Travması</span>
+              <span class="tag">Panik Atak</span>
+              <span class="tag">Fobiler</span>
+              <span class="tag">Yas</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html?hizmet=emdr" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#8B5CF6,#4C1D95)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">⚡</span>
+              <p class="service-visual-title">EMDR Terapisi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YETİŞKİN BALE -->
+  <section class="service-section" id="bale">
+    <div class="container">
+      <div class="service-layout">
+        <div class="reveal">
+          <span class="section-label">07 — Yetişkin Bale</span>
+          <h2>Bedeninizi Tanıyın, Kendinizi Keşfedin</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Gizem Işık liderliğinde yürütülen yetişkin bale dersleri; beden farkındalığı, koordinasyon ve özgüven gelişimine katkı sağlar. Balet deneyimine gerek yoktur — tüm seviyeler kabul edilmektedir.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Ders Süresi</div>
+              <div class="service-info-value">60 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Seviye</div>
+              <div class="service-info-value">Başlangıç & Orta</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Grup / Bireysel</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Konum</div>
+              <div class="service-info-value">Etiler / Ulus</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Faydaları</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">Beden Farkındalığı</span>
+              <span class="tag">Postür Düzeltme</span>
+              <span class="tag">Özgüven Artışı</span>
+              <span class="tag">Denge & Koordinasyon</span>
+              <span class="tag">Stres Atma</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#1A1A1A,#F5C842)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">🦋</span>
+              <p class="service-visual-title">Yetişkin Bale</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MİNDFUL YOGA & NEFES TERAPİSİ -->
+  <section class="service-section" id="yoga">
+    <div class="container">
+      <div class="service-layout reverse">
+        <div class="reveal">
+          <span class="section-label">08 — Mindful Yoga & Nefes Terapisi</span>
+          <h2>Nefes Alın, Yavaşlayın, İyileşin</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            Farkındalık temelli yoga ve nefes terapisi ile zihinsel stres azaltılır, beden rahatlar. Günlük hayatın koşturmacasından uzaklaşarak kendinize zaman ayırın.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Ders Süresi</div>
+              <div class="service-info-value">60–75 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Yaklaşım</div>
+              <div class="service-info-value">MBSR Temelli</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Bireysel / Grup</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Konum</div>
+              <div class="service-info-value">Yüz Yüze / Online</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Program İçeriği</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">Diyafram Nefesi</span>
+              <span class="tag">Farkındalık Meditasyonu</span>
+              <span class="tag">Yoga Asanaları</span>
+              <span class="tag">Stres Azaltma</span>
+              <span class="tag">Beden Tarama</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#E8A800,#3D3000)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">🧘</span>
+              <p class="service-visual-title">Mindful Yoga & Nefes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EĞİTİM KOÇLUĞU & YKS -->
+  <section class="service-section" id="egitim">
+    <div class="container">
+      <div class="service-layout">
+        <div class="reveal">
+          <span class="section-label">09 — Eğitim Koçluğu & Sınav Hazırlık</span>
+          <h2>Potansiyelinizi Ortaya Çıkarın</h2>
+          <div class="divider"></div>
+          <p style="color:var(--muted);line-height:1.9">
+            YKS ve diğer sınavlara hazırlık sürecinde sınav kaygısını yönetmek, motivasyonu korumak ve verimli çalışma stratejileri geliştirmek için eğitim koçluğu hizmetleri sunulmaktadır. Beslenme koçluğu ve sanat terapisi atölyeleri de programa dahildir.
+          </p>
+          <div class="service-info-grid">
+            <div class="service-info-item">
+              <div class="service-info-label">Yaş Grubu</div>
+              <div class="service-info-value">Her Yaş</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Seans Süresi</div>
+              <div class="service-info-value">50 Dakika</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Format</div>
+              <div class="service-info-value">Bireysel / Online</div>
+            </div>
+            <div class="service-info-item">
+              <div class="service-info-label">Atölyeler</div>
+              <div class="service-info-value">Grup Programları</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <h5 style="text-transform:none;letter-spacing:0;font-family:var(--font-sans);color:var(--forest);margin-bottom:0.75rem">Hizmet Kapsamı</h5>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="tag">Sınav Kaygısı (YKS)</span>
+              <span class="tag">Eğitim Koçluğu</span>
+              <span class="tag">Beslenme Koçluğu</span>
+              <span class="tag">Sanat Terapisi</span>
+              <span class="tag">Grup Atölyeleri</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem">
+            <a href="iletisim.html" class="btn btn-primary">Randevu Al</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual" style="background:linear-gradient(135deg,#F5C842,#1A1A1A)">
+            <div class="about-image-bg"></div>
+            <div class="service-visual-inner">
+              <span class="service-emoji">🎓</span>
+              <p class="service-visual-title">Eğitim Koçluğu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container" style="max-width:800px">
+      <div class="text-center reveal">
+        <span class="section-label">SSS</span>
+        <h2>Sık Sorulan Sorular</h2>
+      </div>
+
+      <div style="margin-top:2.5rem">
+        <div class="accordion-item reveal">
+          <div class="accordion-header">
+            <span class="accordion-title">İlk seans nasıl işler?</span>
+            <div class="accordion-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              İlk seans bir tanışma ve değerlendirme seansıdır. Psikologunuz sizinle sorunlarınızı, beklentilerinizi ve geçmişinizi konuşarak en uygun terapi planını birlikte oluşturur. Bu seans yaklaşık 60 dakika sürer.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal">
+          <div class="accordion-header">
+            <span class="accordion-title">Kaç seans gerekir?</span>
+            <div class="accordion-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Her bireyin ihtiyacı farklıdır. Kısa süreli konularda 8-12 seans yeterliyken, travma veya uzun süreli durumlar daha uzun sürebilir. Psikologunuz size öngörülen seans sayısı hakkında bilgi verecektir.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal">
+          <div class="accordion-header">
+            <span class="accordion-title">Söylediklerim gizli kalır mı?</span>
+            <div class="accordion-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Evet. Psikologluk mesleğinin temel etik ilkesi olan gizlilik, seanslarınızda paylaştığınız her bilgiyi kapsar. Yalnızca kendinize veya başkasına ciddi zarar verme riski söz konusu olduğunda ve yasal zorunluluk halinde bu ilkenin istisnaları devreye girebilir.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal">
+          <div class="accordion-header">
+            <span class="accordion-title">Özel sigorta kullanabilir miyim?</span>
+            <div class="accordion-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Birçok özel sağlık sigortası psikoloji seanslarını kapsamaktadır. İletişim sayfamızdan bize ulaşarak sigortanızın anlaşmamız kapsamında olup olmadığını öğrenebilirsiniz.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal">
+          <div class="accordion-header">
+            <span class="accordion-title">Psikolog mu, psikiyatrist mi? Ne fark var?</span>
+            <div class="accordion-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Psikologlar konuşma terapisi uygular, ilaç yazamazlar. Psikiyatristler ise tıp doktoru olup ilaç tedavisi önerebilirler. Gerekli durumlarda sizi psikiyatrist ile işbirliği halinde yönlendirebiliriz.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem">
+        <a href="iletisim.html" class="btn btn-primary btn-lg">
+          Randevu Al — İlk Görüşme Ücretsiz
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Reborn Logo" style="width:32px;height:32px;object-fit:contain" />
+            <span class="footer-logo-text">Reborn Danışmanlık Merkezi</span>
+          </div>
+          <p>2012'den bu yana İstanbul'da psikolojik danışmanlık ve terapi hizmetleri sunuyoruz.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Hızlı Bağlantılar</h5>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="footer-link">Hakkımızda</a>
+            <a href="hizmetler.html" class="footer-link">Hizmetler</a>
+            <a href="ekibimiz.html" class="footer-link">Ekibimiz</a>
+            <a href="iletisim.html" class="footer-link">İletişim</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Hizmetler</h5>
+          <div class="footer-links">
+            <a href="#bireysel" class="footer-link">Bireysel Terapi</a>
+            <a href="#cift" class="footer-link">Çift Terapisi</a>
+            <a href="#aile" class="footer-link">Aile Terapisi</a>
+            <a href="#cocuk" class="footer-link">Çocuk Terapisi</a>
+            <a href="#online" class="footer-link">Online Terapi</a>
+            <a href="#emdr" class="footer-link">EMDR</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>İletişim</h5>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.22 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <span><a href="tel:+902121234567">(0212) 123 45 67</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-text">© 2024 Reborn Danışmanlık Merkezi. Türk Psikologlar Derneği Üyesi</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="main.js"></script>
+</body>
+</html>
